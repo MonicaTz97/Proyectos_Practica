@@ -16,12 +16,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  max-width: 100%;
+  width: auto;
+  margin: 0px 35px;
+
   border-style: solid;
   border-color: var(--black);
   border-width: 1px;
   border-radius: 10px;
   padding: 10px 50px;
+
   transition: box-shadow 0.3s ease;
   transition: background-color 1s ease-in-out;
 }
@@ -67,6 +71,10 @@ button:hover{
 button:active{
   animation: presionado 0.5s ease-in-out;
 }
+.container_contador:hover button{
+  border-color: var(--white);
+}
+/*Animaciones*/
 @keyframes hover_button{
   0% { transform: rotate(0deg); }
   25% { transform: rotate(3deg); }
@@ -92,6 +100,36 @@ p{
 .container_contador:hover p{
   color: var(--white);
 }
-.container_contador:hover button{
-  border-color: var(--white);
+
+/*Tabs*/
+.tabs{
+  display: flex;
+  flex-direction: column;
+  align-items:normal;
+  justify-content: center;
 }
+/*ul*/
+.tabs_header{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  list-style-type: none;
+}
+/*li*/
+.tabs_header li {
+  margin-right: 10px;
+  background-color: var(--purple);
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--black);
+  padding: 5px 10px;
+  font-weight: bold;
+  color: var(--white);
+  font-size: 20px;
+}
+.tabs_header li:hover{
+  background-color: var(--pink);
+  color: var(--black);
+}
+
