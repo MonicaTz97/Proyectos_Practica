@@ -154,4 +154,18 @@ p{
   background-color: var(--blue);
   box-shadow: 0px 1px 20px 3px var(--purple);
 }
+/*Cronometro*/
+/*h2*/
+#cronometro{
+  background-color: var(--dark);
+  color: var(--white);
 
+  font-size: 40px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--black);
+  
+
+}

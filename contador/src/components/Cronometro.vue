@@ -1,7 +1,7 @@
 <template>
     <div class="container_contador">
         <h1>Cronómetro</h1>
-        <h2>{{ formatear }}</h2>
+        <h2 id="cronometro">{{ formatear }}</h2>
         <div class="botones">
             <button @click="iniciar" :disabled="activado">Iniciar</button>
             <button @click="pausar" :disabled="!activado">Pausar</button>
