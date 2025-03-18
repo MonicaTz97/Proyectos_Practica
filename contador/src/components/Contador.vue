@@ -1,5 +1,6 @@
 <template>
     <div class="container_contador">
+        <h1>Contador</h1>
         <div id="contador">
             <button @click="decrementar" :disabled="disabled">-</button>
             <p >{{ contador }}</p>

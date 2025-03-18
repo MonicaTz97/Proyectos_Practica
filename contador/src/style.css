@@ -101,6 +101,7 @@ button:active{
 h1{
   color: var(--white);
   font-size: 50px;
+  margin-bottom: 10px;
 }
 /*Contador texto*/
 p{
@@ -166,6 +167,4 @@ p{
   border-width: 1px;
   border-style: solid;
   border-color: var(--black);
-  
-
 }
