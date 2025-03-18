@@ -5,7 +5,7 @@
         <div class="botones">
             <button @click="iniciar" :disabled="activado">Iniciar</button>
             <button @click="pausar" :disabled="!activado" :style="opacidad">Pausar</button>
-            <button @click="reiniciar">Reiniciar</button>
+            <button @click="reiniciar" :disabled="disabled">Reiniciar</button>
         </div>
     </div>
 </template>

@@ -1,18 +1,18 @@
 <script setup>
 import Contador from './components/Contador.vue'
-import Tabs from './components/Tab.vue'
+import Tab from './components/Tab.vue'
 import TabsWrapper from './components/TabsWrapper.vue';
 import Cronometro from './components/Cronometro.vue';
 </script>
 
 <template>
   <TabsWrapper>
-    <Tabs title="Contador">
+    <Tab title="Contador">
       <Contador />
-    </Tabs>
-    <Tabs title="Cronómetro">
+    </Tab>
+    <Tab title="Cronómetro">
       <Cronometro />
-    </Tabs>
+    </Tab>
   </TabsWrapper>
 </template>
 
