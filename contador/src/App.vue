@@ -13,12 +13,6 @@ import TabsWrapper from './components/TabsWrapper.vue';
       aaaaa
     </Tabs>
   </TabsWrapper>
-  <!--
-  <div class="container">
-    <h1>Contador</h1>
-    <Contador />
-  </div>
-  -->
 </template>
 
 

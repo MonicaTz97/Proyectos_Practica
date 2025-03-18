@@ -1,7 +1,7 @@
 <template>
     <div class="tabs">
         <ul class="tabs_header">
-            <li v-for="title in tabTitles" :key="title" @click="selectedTitle = title">{{ title }}</li>
+            <li v-for="title in tabTitles" :key="title" @click="selectedTitle = title" :class="{'active': selectedTitle === title}">{{ title }}</li>
         </ul>
         
         <slot></slot>

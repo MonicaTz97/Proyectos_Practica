@@ -1,7 +1,9 @@
 :root {
   --blue: #31A2F2;
+  --blueTransparent: #31A2F280;
   --pink: #FF69B4;
   --purple: #9B59B6;
+  --purpleTransparent: #9B59B680;
   --white: #f5f2f2;
   --dark: #2C3E50;
   --black: #000;
@@ -9,16 +11,21 @@
 
 body {
   background-color: var(--dark);
+  background-image: url(public/img/jinx.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 /*Contenedor contador*/
 .container_contador {
-  background-color: var(--blue);
+  background-color: var(--blueTransparent);
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 100%;
   width: auto;
-  margin: 0px 35px;
+  margin: 0px 40px;
 
   border-style: solid;
   border-color: var(--black);
@@ -28,10 +35,11 @@ body {
 
   transition: box-shadow 0.3s ease;
   transition: background-color 1s ease-in-out;
+  
 }
 .container_contador:hover{
   box-shadow: 0px 1px 20px 3px var(--purple);
-  background-color: var(--purple);
+  background-color: var(--purpleTransparent);
   border-color: var(--white);
 }
 /*Contenedor html*/
@@ -40,6 +48,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+ 
 }
 /*Contador*/
 #contador {
@@ -62,6 +71,7 @@ button {
   font-weight: bold;
   transition: background-color 1s ease-in-out;
   transition: transform 0.5s ease-in-out;
+  cursor: pointer;
 }
 button:hover{
   background-color: var(--blue);
@@ -114,22 +124,34 @@ p{
   flex-direction: row;
   justify-content: start;
   list-style-type: none;
+  
 }
 /*li*/
 .tabs_header li {
-  margin-right: 10px;
   background-color: var(--purple);
+  color: var(--white);
+
+  margin-right: 10px;
+  margin-bottom: -15px;
+  padding: 5px 10px;
+  
   border-radius: 10px;
   border-width: 1px;
   border-style: solid;
   border-color: var(--black);
-  padding: 5px 10px;
+  border-bottom: none;
+
   font-weight: bold;
-  color: var(--white);
   font-size: 20px;
+  cursor: pointer;
 }
 .tabs_header li:hover{
   background-color: var(--pink);
   color: var(--black);
+}
+/*li activo*/
+.tabs_header li.active{
+  background-color: var(--blue);
+  box-shadow: 0px 1px 20px 3px var(--purple);
 }
 
