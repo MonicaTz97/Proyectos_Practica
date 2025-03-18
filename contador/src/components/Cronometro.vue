@@ -4,7 +4,7 @@
         <h2 id="cronometro">{{ formatear }}</h2>
         <div class="botones">
             <button @click="iniciar" :disabled="activado">Iniciar</button>
-            <button @click="pausar" :disabled="!activado">Pausar</button>
+            <button @click="pausar" :disabled="!activado" :style="opacidad">Pausar</button>
             <button @click="reiniciar">Reiniciar</button>
         </div>
     </div>
@@ -18,6 +18,9 @@
     const minutos = ref(0);
     const segundos = ref(0);
     const milisegundos = ref(0);
+
+    const opacidad = computed(() => ({opacity: activado.value ? 1 : 0.5})); /*opacidad*/
+    const disabled = computed(() => !activado.value); /*desabilitar boton*/
 
     /*con esto se muestra con dos dígitos*/
     const formatear = computed(() => {
