@@ -1,0 +1,97 @@
+:root {
+  --blue: #31A2F2;
+  --pink: #FF69B4;
+  --purple: #9B59B6;
+  --white: #f5f2f2;
+  --dark: #2C3E50;
+  --black: #000;
+}
+
+body {
+  background-color: var(--dark);
+}
+/*Contenedor contador*/
+.container_contador {
+  background-color: var(--blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-color: var(--black);
+  border-width: 1px;
+  border-radius: 10px;
+  padding: 10px 50px;
+  transition: box-shadow 0.3s ease;
+  transition: background-color 1s ease-in-out;
+}
+.container_contador:hover{
+  box-shadow: 0px 1px 20px 3px var(--purple);
+  background-color: var(--purple);
+  border-color: var(--white);
+}
+/*Contenedor html*/
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/*Contador*/
+#contador {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+/*Botones*/
+button {
+  color: var(--black);
+  background-color: var(--pink);
+  font-size: 20px;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: var(--black);
+  margin: 10px;
+  padding: 5px 12px;
+  font-weight: bold;
+  transition: background-color 1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+button:hover{
+  background-color: var(--blue);
+  animation: hover_button 0.5s ease-in-out;
+  color: var(--white);
+}
+button:active{
+  animation: presionado 0.5s ease-in-out;
+}
+@keyframes hover_button{
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes presionado {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(0.9) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+/*Titulo*/
+h1{
+  color: var(--white);
+  font-size: 50px;
+}
+/*Contador texto*/
+p{
+  color: var(--black);
+  font-size: 30px;
+}
+.container_contador:hover p{
+  color: var(--white);
+}
+.container_contador:hover button{
+  border-color: var(--white);
+}
