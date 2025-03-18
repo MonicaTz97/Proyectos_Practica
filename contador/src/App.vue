@@ -2,6 +2,7 @@
 import Contador from './components/Contador.vue'
 import Tabs from './components/Tab.vue'
 import TabsWrapper from './components/TabsWrapper.vue';
+import Cronometro from './components/Cronometro.vue';
 </script>
 
 <template>
@@ -10,7 +11,7 @@ import TabsWrapper from './components/TabsWrapper.vue';
       <Contador />
     </Tabs>
     <Tabs title="Cronómetro">
-      aaaaa
+      <Cronometro />
     </Tabs>
   </TabsWrapper>
 </template>
