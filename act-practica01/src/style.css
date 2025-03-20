@@ -1,0 +1,57 @@
+body{
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.oferta{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.diario{
+    background-color: #1ca800;
+  }
+.finde{
+    background-color: #ff0000;
+  }
+.dias{
+    color: #fafafa;
+    padding: 5px 20px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    margin: 10px;
+    display: inline-block;
+  }
+.oferta img{
+    width: 65px;
+    margin: 12px 5px;
+}
+#precio{
+  font-size: 25px;
+  margin: 0px;
+}
+h2{
+    font-size: 40px; 
+}
+button{
+    padding: 5px 20px;
+    font-size: 20px;
+    margin: 20px;
+    
+}
+
+
+

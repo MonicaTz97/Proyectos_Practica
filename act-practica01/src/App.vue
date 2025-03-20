@@ -20,42 +20,32 @@ const imagen = computed(() => {
   return `${ruta}${datos[contador.value].nombre.toLowerCase()}.png`;
 })
 
+const nuevoPrecio = computed(() => {
+  return Number(datos[contador.value].precio/ 1.10).toFixed(2);
+})
+
 </script>
 
 <template>
   <h2>Cena {{ contador + 1}} con el rey godo {{ rey }}</h2>
-  <h3>Precio: {{ datos[contador].precio }} €</h3>
-  <div v-if="datos[contador].finDeSemana" class="diario dias">
-    Solo fines de semana
-  </div>
-  <div v-else class="finde dias">
-    De lunes a domingo
-  </div>
-  <div>
-    <div> 
-      Ahora un 10% de descuento:
-      {{ nuevoPrecio }} €
+  <div class="contenedor">
+    <h3 id="precio">Precio: {{ datos[contador].precio }} €</h3>
+    <div v-if="datos[contador].finDeSemana" class="finde dias">
+      Solo fines de semana
+    </div>
+    <div v-else class="dias diario">
+      De lunes a domingo
+    </div>
+    <div v-if="datos[contador].precio < 100" class = "oferta">
+      <div> 
+        Ahora un 10% de descuento:
+        {{ nuevoPrecio }} €
+      </div>
+        <img src="/oferta.png" alt="oferta">
     </div>
     
-  </div>
-  
-  <img :src="imagen" alt="reyes">
-  <button @:click="siguiente">Siguiente ({{ contador + 1}}/{{ datos.length }})</button>
-</template>
+    <img :src="imagen" alt="reyes">
 
-<style scoped>
-  .diario{
-    background-color: #1ca800;
-  }
-  .finde{
-    background-color: #ff0000;
-  }
-  .dias{
-    color: #fafafa;
-    padding: 10px;
-    font-size: 1.5em;
-    border-radius: 10px;
-    margin: 10px;
-    display: inline-block;
-  }
-</style>
+    <button @click="siguiente">Siguiente ({{ contador + 1}}/{{ datos.length }})</button>
+  </div>
+</template>
