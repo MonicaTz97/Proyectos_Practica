@@ -40,14 +40,15 @@
     const segundos = ref(0);
 
     const tiempoTotal = computed(() => {
-        return horas.value * 3600 + minutos.value * 60 + segundos.value;
+        return dias.value * 86400 +horas.value * 3600 + minutos.value * 60 + segundos.value;
     });
 
     const tiempoFormateado = computed(() => {
-        const h = Math.floor(tiempoTotal.value / 3600);
+        const d = Math.floor(tiempoTotal.value / 86400);
+        const h = Math.floor((tiempoTotal.value % 86400) / 3600);
         const m = Math.floor((tiempoTotal.value % 3600) / 60);
         const s = tiempoTotal.value % 60;
-        return `${dias.value.toString().padStart(2, '0')}:${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        return `${d.toString().padStart(2, '0')}:${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
     });
 
     const opacidad = computed(() => ({opacity: activado.value ? 1 : 0.5})); /*opacidad*/
