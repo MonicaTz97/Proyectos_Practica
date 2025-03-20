@@ -6,12 +6,13 @@
   --purpleTransparent: #9B59B680;
   --white: #f5f2f2;
   --dark: #2C3E50;
+  --darkTransparent: #2C3E5080;
   --black: #000;
 }
 
 body {
   background-color: var(--dark);
-  background-image: url(public/img/jinx.png);
+  background-image: url(img/jinx.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -168,3 +169,55 @@ p{
   border-style: solid;
   border-color: var(--black);
 }
+/*Temporizador*/
+#temporizador{
+  background-color: var(--darkTransparent);
+  color: var(--white);
+  padding: 10px 20px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--black);
+}
+#temporizador_formateado{
+  background-color: var(--dark);
+  color: var(--white);
+  padding: 10px 20px;
+
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--black);
+
+  font-size: 40px;
+}
+.temporizador_item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 25px;
+}
+.temporizador_item input{
+  background-color: var(--white);
+  width: 100px;
+  height: 45px;
+  font-size: 20px;
+  text-align: center;
+
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--black);
+}
+.temporizador_item h2{
+  font-size: 25px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
