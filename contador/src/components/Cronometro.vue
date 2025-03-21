@@ -1,11 +1,20 @@
 <template>
-    <div class="container_contador">
+    <div class="container_cronometro">
         <h1>Cronómetro</h1>
-        <h2 id="cronometro">{{ formatear }}</h2>
+        <div id = "contenido_cronometro">
+            <h2 id="cronometro">{{ formatear }}</h2>
+            <button @click="guardarCronometro" id="boton_cronometro">Guardar</button>
+        </div>
         <div class="botones">
             <button @click="iniciar" :disabled="activado">Iniciar</button>
             <button @click="pausar" :disabled="!activado" :style="opacidad">Pausar</button>
             <button @click="reiniciar">Reiniciar</button>
+        </div>
+        <div id="registro">
+            <p>Registro</p>
+            <ul>
+                <li v-for="item in registro" :key="item.cronometro">{{ item.cronometro }}</li>
+            </ul>
         </div>
     </div>
 </template>
@@ -53,6 +62,11 @@
         segundos.value = 0;
         milisegundos.value = 0;
     }
-    
+    const registro = ref([]);
+    const guardarCronometro = () => {
+        if(formatear.value !== '00:00:00'){
+            registro.value.push({cronometro: formatear.value});
+        }
+    }
 
 </script>
