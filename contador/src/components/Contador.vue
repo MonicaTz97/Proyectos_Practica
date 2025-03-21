@@ -9,6 +9,17 @@
         <div id="resetear" :style="opacidad" >
             <button @click="resetear">Resetear</button>
         </div>
+        <div>
+            <input type="text" placeholder="¿Qué has contado?" v-model="texto">
+            <button @click="guardarContador">Guardar</button>
+        </div>
+        <div id="registro">
+            <p>Registro</p>
+            <ul>
+                <li v-for="item in registro" :key="item.texto">{{ item.texto }} - {{ item.contador }}</li>
+            </ul>
+        </div>
+    
     </div>
     
 </template>
@@ -25,7 +36,15 @@
     const resetear = () => {
         contador.value = 0;
     }
+    const registro = ref([]);
+    const texto = ref('');
+    const guardarContador = () => {
+        if(texto.value !== ''){
+            registro.value.push({texto: texto.value, contador: contador.value});
+            texto.value = '';
+        }
+    }
     const opacidad = computed(() => ({opacity: contador.value > 0 ? 1 : 0.5})); /*opacidad*/
-    const disabled = computed(() => contador.value <= 0); /*desabilitar boton*/
+    const disabled = computed(() => contador.value <= 0); /*deshabilitar boton*/
 </script>
 
