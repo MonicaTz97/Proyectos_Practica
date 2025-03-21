@@ -18,12 +18,19 @@
                 <h2>Segundos</h2>
                 <input type="number" v-model="segundos" @input="validar" />
             </div>
+            <button @click="guardarTemporizador" id="boton_temporizador">Guardar</button>
         </div>
         <h2 id="temporizador_formateado">{{ tiempoFormateado }}</h2>
         <div class="botones">
             <button @click="iniciar" :disabled="activado">Iniciar</button>
             <button @click="pausar" :disabled="!activado" :style="opacidad">Pausar</button>
             <button @click="reiniciar">Reiniciar</button>
+        </div>
+        <div id="registro">
+            <p>Registro</p>
+            <ul>
+                <li v-for="item in registro" :key="item.tiempo">{{ item.tiempo }}</li>
+            </ul>
         </div>
     </div>  
 </template>
@@ -104,6 +111,11 @@
         if(eval(minutos.value > 59)) eval(minutos.value = 59);
         if(eval(segundos.value > 59)) eval(segundos.value = 59);
     }
-    
+    const registro = ref([]);
+    const guardarTemporizador = () => {
+        if(tiempoFormateado.value !== '00:00:00:00'){
+            registro.value.push({tiempo: tiempoFormateado.value});
+        }
+    }
     
 </script>
