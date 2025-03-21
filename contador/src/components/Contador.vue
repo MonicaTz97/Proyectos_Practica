@@ -3,7 +3,7 @@
         <h1>Contador</h1>
         <div id="contador">
             <button @click="decrementar" :disabled="disabled">-</button>
-            <p >{{ contador }}</p>
+            <input type="number" v-model="contador" id="input_contador">
             <button @click="incrementar">+</button>
         </div>
         <div id="resetear" :style="opacidad" >
@@ -40,7 +40,7 @@
     const texto = ref('');
     const guardarContador = () => {
         if(texto.value !== ''){
-            registro.value.push({texto: texto.value, contador: contador.value});
+            registro.value.push({texto: texto.value.trim(), contador: contador.value});
             texto.value = '';
         }
     }
