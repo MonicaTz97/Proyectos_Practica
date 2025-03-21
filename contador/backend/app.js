@@ -39,4 +39,17 @@ app.get('/datos', (req, res) => {
     .catch(err => res.status(500).json({ error: err.message }));
 });
 
+app.get('/buscar', async (req, res) => {
+    const { buscar } = req.query;
+    if (!buscar || buscar.trim() === '') {
+        return res.json([]);
+    }
+    try {
+      const data = await Data.find({ nombre: { $regex: buscar, $options: 'i' } });
+      res.json(data);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+});
+
 module.exports = app;

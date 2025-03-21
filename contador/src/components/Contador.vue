@@ -13,12 +13,26 @@
             <input type="text" placeholder="¿Qué has contado?" v-model="texto">
             <button @click="guardarContador">Guardar</button>
         </div>
-        <div id="registro">
-            <p>Registro</p>
-            <ul>
-                <li v-for="(dato, index) in datos" :key="index">{{ dato.nombre }}: {{ dato.contador }}</li>
-            </ul>
-            <p v-if="datos.length === 0">No hay registros guardados</p>
+        <div class="container_bbdd">
+            <div id="registro">
+                <div id="refrescar">
+                    <p>Registro</p>
+                    <button @click="refrescar" id="boton_refrescar">Refrescar</button>
+                </div>
+                <ul>
+                    <li v-for="(dato, index) in datos" :key="index">{{ dato.nombre }}: {{ dato.contador }}</li>
+                </ul>
+                <p v-if="datos.length === 0">No hay registros guardados</p>
+            </div>
+            <div id="Buscar">
+                <p>Buscar</p>
+                <input type="text" placeholder="Buscar..." v-model="buscar">
+                <button @click="buscarContador">Buscar</button>
+                <p v-if="buscar.length > 0 && resultados.length > 0">Resultado de la búsqueda: {{ buscar }}</p>
+                <ul>
+                    <li v-for="(dato, index) in resultados" :key="index">{{ dato.nombre }}: {{ dato.contador }}</li>
+                </ul>
+            </div>
         </div>
     
     </div>
@@ -34,6 +48,8 @@
     const contador = ref(0);
     const datos = ref([]);
     const texto = ref('');
+    const buscar = ref('');
+    const resultados = ref([]);
 
     const incrementar = () => {
         contador.value++;
@@ -45,6 +61,9 @@
     }
     const resetear = () => {
         contador.value = 0;
+    }
+    const refrescar = () => {
+        cargarDatos();
     }
     const capitalizar = (texto) => {
         return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
@@ -70,6 +89,21 @@
         } catch (error) {
             console.error('Error al guardar:', error);
             toast.error('Error al guardar el contador');
+        }
+    }
+    const buscarContador = async () => {
+        if (!buscar.value.trim()) {
+            resultados.value = [];
+            return;
+        }
+        try {
+            const response = await axios.get('http://localhost:3000/api/buscar', {
+                params: { buscar: buscar.value.trim() }
+            });
+            resultados.value = response.data;
+        } catch (error) {
+            console.error('Error al buscar:', error);
+            toast.error('Error al buscar el contador');
         }
     }
     const cargarDatos = async () => {
